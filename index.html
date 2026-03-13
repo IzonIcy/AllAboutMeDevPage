@@ -59,9 +59,35 @@
         <ul class="link-list">
           <li><a href="https://www.instagram.com/playboiiii_ryan/" target="_blank" rel="noreferrer">◦ insta</a></li>
           <li><a href="https://github.com/IzonIcy" target="_blank" rel="noreferrer">◦ github</a></li>
+          <li>
+            <button class="social-button" type="button" data-copy="flayicy">
+              ◦ discord
+            </button>
+          </li>
           <li><a href="#">◦ hire_me_©</a></li>
         </ul>
       </section>
     </main>
+
+    <script>
+      const discordButton = document.querySelector("[data-copy]");
+
+      if (discordButton) {
+        discordButton.addEventListener("click", async () => {
+          const originalLabel = discordButton.textContent.trim();
+
+          try {
+            await navigator.clipboard.writeText(discordButton.dataset.copy);
+            discordButton.textContent = "◦ discord copied: flayicy";
+          } catch {
+            discordButton.textContent = "◦ discord: flayicy";
+          }
+
+          window.setTimeout(() => {
+            discordButton.textContent = originalLabel;
+          }, 1800);
+        });
+      }
+    </script>
   </body>
 </html>
